@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.banny</groupId>
+    <groupId>com.github</groupId>
     <artifactId>unidbg</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.2.1-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -72,6 +72,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.10.3</version>
+                <configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -87,26 +90,38 @@
             <groupId>org.unicorn-engine</groupId>
             <artifactId>unicorn</artifactId>
             <version>1.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>net.java.dev.jna</groupId>
-            <artifactId>jna</artifactId>
-            <version>4.5.2</version>
+            <!--
+            <scope>system</scope>
+            <systemPath>${basedir}/prebuilt/jar/unicorn-1.0.1.jar</systemPath>
+            -->
         </dependency>
         <dependency>
             <groupId>org.capstone-engine</groupId>
             <artifactId>capstone</artifactId>
             <version>3.0.5</version>
+            <!--
+            <scope>system</scope>
+            <systemPath>${basedir}/prebuilt/jar/capstone-3.0.5.jar</systemPath>
+            -->
         </dependency>
         <dependency>
             <groupId>keystone</groupId>
             <artifactId>java-bindings</artifactId>
             <version>0.9.1-2</version>
+            <!--
+            <scope>system</scope>
+            <systemPath>${basedir}/prebuilt/jar/java-bindings-0.9.1-2.jar</systemPath>
+            -->
         </dependency>
         <dependency>
-            <groupId>cn.banny</groupId>
-            <artifactId>utils</artifactId>
-            <version>0.0.8</version>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>4.5.2</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
@@ -129,6 +144,11 @@
             <version>0.8</version>
         </dependency>
         <dependency>
+            <groupId>com.googlecode.plist</groupId>
+            <artifactId>dd-plist</artifactId>
+            <version>1.23</version>
+        </dependency>
+        <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
@@ -141,9 +161,21 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.11</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.26</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.26</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.60</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -173,5 +205,4 @@
             <url>http://p.gzmtx.cn:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-
 </project>
